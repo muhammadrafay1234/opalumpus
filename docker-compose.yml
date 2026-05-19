@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    restart: always
+
+  backend:
+    build: ./Backend
+    ports:
+      - "5000:5000" 
+    depends_on:
+      - mongodb
+
+  frontend:
+    build: ./Opalumpus_frontEnd
+    ports:
+      - "5173:5173" 
+    depends_on:
+      - backend
