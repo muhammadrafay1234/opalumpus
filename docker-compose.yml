@@ -14,6 +14,10 @@ services:
     working_dir: /app
     volumes:
       - ./Backend:/app                   # ATTACHING VOLUME for code
+
+    environment:                                          
+      - MONGO_URI=mongodb://mongodb-part2:27017/opalumpus
+    
     ports:
       - "5005:5000"                      # NEW port number (was 5000)
     command: sh -c "npm install && npm start"
