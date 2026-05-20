@@ -19,7 +19,7 @@ services:
       - MONGO_URI=mongodb://mongodb-part2:27017/opalumpus
     
     ports:
-      - "5005:5000"                      # NEW port number (was 5000)
+      - "5005:4000"                     # NEW port number (was 5000)
     command: sh -c "npm install && npm start"
     depends_on:
       - mongodb-part2
