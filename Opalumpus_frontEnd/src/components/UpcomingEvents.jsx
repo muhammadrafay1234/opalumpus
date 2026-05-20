@@ -9,7 +9,7 @@ function UpcomingEvents() {
 
   useEffect(() => {
     // Fetch upcoming events from the server
-    axios.get("http://localhost:4000/api/trips")
+    axios.get("http://32.193.244.155:5005/api/trips")
       .then(response => {
         console.log("Fetched events:", response.data.trips); // Debugging line
         setEvents(response.data.trips);
