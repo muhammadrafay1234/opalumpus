@@ -15,7 +15,7 @@ function CRUDform() {
 
   useEffect(() => {
     // Fetch existing events from the server
-    axios.get("http://localhost:4000/api/trips")
+    axios.get("http://32.193.244.155:5005/api/trips")
       .then(response => setEvents(response.data.trips))
       .catch(error => console.error("Error fetching events:", error));
   }, []);
@@ -27,7 +27,7 @@ function CRUDform() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isUpdating) {
-      axios.put(`http://localhost:4000/api/trips/${updateId}`, formData)
+      axios.put(`http://32.193.244.155:5005/api/trips/${updateId}`, formData)
         .then(response => {
           setEvents(events.map(event => (event._id === updateId ? response.data : event)));
           setIsUpdating(false);
@@ -36,7 +36,7 @@ function CRUDform() {
         })
         .catch(error => console.error("Error updating event:", error));
     } else {
-      axios.post("http://localhost:4000/api/trips/add", formData)
+      axios.post("http://32.193.244.155:5005/api/trips/add", formData)
         .then(response => {
           setEvents([...events, response.data.trip]);
           setFormData({ destination: "", duration: "", price: "", description: "" });
@@ -46,7 +46,7 @@ function CRUDform() {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:4000/api/trips/${id}`)
+    axios.delete(`http://32.193.244.155:5005/api/trips/${id}`)
       .then(() => setEvents(events.filter(event => event._id !== id)))
       .catch(error => console.error("Error deleting event:", error));
   };
