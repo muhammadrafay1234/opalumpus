@@ -24,7 +24,7 @@ function BookingPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:4000/api/booknow", formData)
+    axios.post("http://32.193.244.155:5005/api/booknow", formData)
       .then(response => {
         alert("Booking successfully created!");
         setFormData({
